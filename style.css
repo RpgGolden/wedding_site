@@ -1,0 +1,73 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: #e8dfd6;
+	font-family: 'Georgia', serif;
+}
+
+/* Центрирующая сцена */
+.stage {
+	padding: 20px;
+}
+
+/* Фиксированная открытка 1600x900 */
+.card {
+	position: relative;
+
+	width: 100%;
+	max-width: 1600px;
+
+	aspect-ratio: 1600 / 2400;
+
+	margin: 0 auto;
+
+	background: url('img/invite.png') center/cover no-repeat;
+
+	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+/* Адаптивный scale */
+@media (max-width: 1600px), (max-height: 900px) {
+	.card {
+		transform: scale(min(calc(100vw / 1600), calc(100vh / 900)));
+	}
+}
+
+
+/* ===== ШТОРКА ===== */
+
+.curtain {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	z-index: 5;
+}
+
+.panel {
+	flex: 1;
+	background:
+		linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.08)),
+		linear-gradient(90deg, #e7dccf, #d9cbbd);
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+	transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.left {
+	transform: translateX(0);
+}
+
+.right {
+	transform: translateX(0);
+}
+
+/* открытие */
+body.open .left {
+	transform: translateX(-100%);
+}
+
+body.open .right {
+	transform: translateX(100%);
+}
