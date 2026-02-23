@@ -2,47 +2,70 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--bg: #e8dfd6;
+	--ink: #3f372f;
+	--underline: #6c584f;
+	--pad: clamp(10px, 2.2vw, 24px);
+}
+
 body {
 	margin: 0;
-	background: #e8dfd6;
+	background: var(--bg);
 	font-family: 'Georgia', serif;
 }
 
-/* Центрирующая сцена */
+/* Сцена: центрируем и даём безопасные отступы */
 .stage {
-	padding: 20px;
+	min-height: 100svh;
+	display: grid;
+	place-items: center;
+	padding: var(--pad);
 }
 
-/* Фиксированная открытка 1600x900 */
+/* Открытка: всегда влезает в экран и сохраняет пропорции */
 .card {
 	position: relative;
 
-	width: 100%;
-	max-width: 1600px;
+	/* Влезаем по высоте экрана */
+	max-height: calc(100svh - (var(--pad) * 2));
+	height: calc(100svh - (var(--pad) * 2));
 
+	/* Ширина по пропорциям */
+	width: auto;
 	aspect-ratio: 1600 / 2400;
 
-	margin: 0 auto;
+	/* Ограничение на больших экранах */
+	max-width: 1600px;
 
+	margin: 0 auto;
 	background: url('img/invitetwo.png') center/cover no-repeat;
 
 	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+	border-radius: clamp(10px, 1.2vw, 18px);
+	overflow: hidden;
 }
 
-/* Адаптивный scale */
-/* @media (max-width: 1600px), (max-height: 900px) {
+/* Фолбэк для старых браузеров без aspect-ratio */
+@supports not (aspect-ratio: 1 / 1) {
 	.card {
-		transform: scale(min(calc(100vw / 1600), calc(100vh / 900)));
+		width: min(100%, 1600px);
+		height: auto;
 	}
-} */
+	.card::before {
+		content: '';
+		display: block;
+		padding-top: 150%; /* 2400/1600 = 1.5 */
+	}
+}
 
 /* ===== ШТОРКА ===== */
-
 .curtain {
 	position: absolute;
 	inset: 0;
 	display: flex;
 	z-index: 5;
+	pointer-events: none;
 }
 
 .panel {
@@ -52,55 +75,88 @@ body {
 		linear-gradient(90deg, #e7dccf, #d9cbbd);
 	box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
 	transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+	will-change: transform;
 }
 
 .left {
 	transform: translateX(0);
 }
-
 .right {
 	transform: translateX(0);
 }
 
-/* открытие */
 body.open .left {
 	transform: translateX(-100%);
 }
-
 body.open .right {
 	transform: translateX(100%);
 }
 
+/* ===== ТЕКСТ ПО ЦЕНТРУ (адаптивно, без налезаний) ===== */
 .overlay-text {
 	position: absolute;
 	inset: 0;
 	pointer-events: none;
-	font-family: 'Georgia', serif;
-	color: #3f372f;
+	color: var(--ink);
+
+	/* Центрируем весь блок */
+	display: grid;
+	place-items: center;
+	padding: clamp(16px, 3vw, 42px);
+}
+
+.stack {
+	width: min(92%, 1100px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	/* расстояние между строками */
+	gap: clamp(10px, 1.6vw, 18px);
+
+	/* можно чуть приподнять выше/ниже центра */
+	transform: translateY(-6%);
 }
 
 .line {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
+	margin: 0;
 	text-align: center;
-	max-width: 90%;
+	max-width: 100%;
 
-	padding-bottom: 6px; /* отступ до линии */
-	border-bottom: 4px solid #6c584f;
+	/* линия под текстом */
+	padding-bottom: clamp(4px, 0.6vw, 10px);
+	border-bottom: clamp(2px, 0.35vw, 4px) solid var(--underline);
 }
 
+/* Шрифты */
 .names {
-	top: 27%;
-	font-size: clamp(28px, 4.5vw, 64px);
+	font-size: clamp(26px, 4.6vw, 64px);
+	letter-spacing: 0.02em;
 }
 
 .date {
-	top: 34%;
-	font-size: clamp(14px, 1.8vw, 24px);
+	font-size: clamp(14px, 1.9vw, 24px);
+	opacity: 0.95;
 }
 
 .place {
-	top: 37.5%;
-	font-size: clamp(14px, 1.6vw, 22px);
+	font-size: clamp(14px, 1.7vw, 22px);
+	opacity: 0.9;
+}
+
+/* Очень маленькие телефоны: чуть больше отступов и меньше подъём */
+@media (max-width: 360px) {
+	.overlay-text {
+		padding: 14px;
+	}
+	.stack {
+		transform: translateY(-2%);
+	}
+}
+
+/* Уважаем настройки “меньше анимаций” */
+@media (prefers-reduced-motion: reduce) {
+	.panel {
+		transition: none;
+	}
 }
