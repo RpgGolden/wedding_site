@@ -30,12 +30,11 @@ body {
 }
 
 /* Адаптивный scale */
-@media (max-width: 1600px), (max-height: 900px) {
+/* @media (max-width: 1600px), (max-height: 900px) {
 	.card {
 		transform: scale(min(calc(100vw / 1600), calc(100vh / 900)));
 	}
-}
-
+} */
 
 /* ===== ШТОРКА ===== */
 
@@ -70,4 +69,35 @@ body.open .left {
 
 body.open .right {
 	transform: translateX(100%);
+}
+
+.overlay-text {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	font-family: 'Georgia', serif;
+	color: #3f372f;
+}
+
+.line {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	max-width: 90%;
+}
+
+.names {
+	top: 27%;
+	font-size: clamp(28px, 4.5vw, 64px);
+}
+
+.date {
+	top: 34%;
+	font-size: clamp(14px, 1.8vw, 24px);
+}
+
+.place {
+	top: 37.5%;
+	font-size: clamp(14px, 1.6vw, 22px);
 }
