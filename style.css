@@ -110,12 +110,12 @@ body.open .right {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
+	font-weight: 500;
 	/* расстояние между строками */
 	gap: clamp(10px, 1.6vw, 18px);
 
 	/* можно чуть приподнять выше/ниже центра */
-	transform: translateY(-6%);
+	transform: translateY(-30%);
 }
 
 .line {
@@ -130,8 +130,17 @@ body.open .right {
 
 /* Шрифты */
 .names {
-	font-size: clamp(26px, 4.6vw, 64px);
+	font-size: clamp(26px, 4.6vw, 34px);
 	letter-spacing: 0.02em;
+}
+
+.names:first-child {
+	font-size: clamp(26px, 4.6vw, 50px);
+	letter-spacing: 0.02em;
+}
+
+.original {
+	font-weight: 700;
 }
 
 .date {
@@ -141,7 +150,6 @@ body.open .right {
 
 .place {
 	font-size: clamp(14px, 1.7vw, 22px);
-	opacity: 0.9;
 }
 
 /* Очень маленькие телефоны: чуть больше отступов и меньше подъём */
@@ -159,4 +167,106 @@ body.open .right {
 	.panel {
 		transition: none;
 	}
+}
+
+.event-info {
+	position: absolute;
+	left: clamp(14px, 2.6vw, 38px);
+	bottom: clamp(14px, 2.6vw, 38px);
+	z-index: 4; /* под шторкой (у шторки 5), но над фоном */
+	color: var(--ink);
+	text-align: left;
+	max-width: min(46%, 520px);
+
+	display: flex;
+	flex-direction: column;
+	gap: clamp(4px, 0.6vw, 8px);
+}
+
+.event-info {
+	pointer-events: none;
+}
+
+.event-info a {
+	pointer-events: auto;
+}
+
+.event-date {
+	margin: 0;
+	font-size: clamp(12px, 1.4vw, 20px);
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+.event-place {
+	margin: 0;
+	font-size: clamp(11px, 1.3vw, 18px);
+	opacity: 0.85;
+	line-height: 1.2;
+}
+
+/* строки центра */
+.line {
+	opacity: 0;
+	transform: translateY(12px);
+	transition:
+		opacity 0.6s ease,
+		transform 0.6s ease;
+}
+
+body.open .line:nth-child(1) {
+	opacity: 1;
+	transform: none;
+	transition-delay: 0.55s;
+}
+body.open .line:nth-child(2) {
+	opacity: 1;
+	transform: none;
+	transition-delay: 0.7s;
+}
+body.open .line:nth-child(3) {
+	opacity: 1;
+	transform: none;
+	transition-delay: 0.85s;
+}
+body.open .line:nth-child(4) {
+	opacity: 1;
+	transform: none;
+	transition-delay: 1s;
+}
+
+.event-info p {
+	opacity: 0;
+	transform: translateY(12px);
+	transition:
+		opacity 0.6s ease,
+		transform 0.6s ease;
+}
+
+/* дата после основного текста */
+body.open .event-date {
+	opacity: 1;
+	transform: none;
+	transition-delay: 1.15s;
+}
+
+/* место после даты */
+body.open .event-place {
+	opacity: 1;
+	transform: none;
+	transition-delay: 1.3s;
+}
+
+.event-place a {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+	transition:
+		opacity 0.25s ease,
+		border-color 0.25s ease;
+}
+
+.event-place a:hover {
+	opacity: 0.7;
+	border-color: transparent;
 }
