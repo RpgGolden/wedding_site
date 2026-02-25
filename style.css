@@ -132,7 +132,7 @@ body.open .right {
 }
 
 .names:first-child {
-	font-size: clamp(26px, 4vw, 36px);
+	font-size: clamp(26px, 4vw, 40px);
 }
 
 .date {
