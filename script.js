@@ -47,9 +47,9 @@ window.addEventListener('load', () => {
 			title: 'Уважаемые',
 			names: 'Никита и Алёна',
 		},
-		maksim_:{ // TTt
+		maksim_natasha:{ // TTt
 			title: 'Уважаемые',
-			names: 'Максим и Алина',
+			names: 'Максим и Наталья',
 		},
 		slava: {
 			title: 'Уважаемый',
