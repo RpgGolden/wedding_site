@@ -15,18 +15,75 @@ window.addEventListener('load', () => {
 			title: 'Уважаемые',
 			names: 'Максим & Алина',
 		},
-		anna: {
+		nastya_artem: {
+			title: 'Уважаемые',
+			names: 'Анастасия и Артем',
+		},
+		nastya: {
 			title: 'Уважаемая',
-			names: 'Анна',
+			names: 'Анастасия Морозова',
 		},
-		parents: {
-			title: '',
-			names: 'Дорогие родители',
+		danila: {
+			title: 'Уважаемый',
+			names: 'Данила Махирович',
 		},
-		friends: {
-			title: '',
-			names: 'Дорогие друзья',
+		danil: {
+			title: 'Уважаемый',
+			names: 'Данил Романович',
 		},
+		katya: {
+			title: 'Уважаемая',
+			names: 'Екатерина Фёдоровна',
+		},
+		sergey: {
+			title: 'Уважаемый',
+			names: 'Сергей Сергеевич',
+		},
+		nikitapopov: {
+			title: 'Уважаемый',
+			names: 'Никита Сергеевич',
+		},
+		nikita_alena: {
+			title: 'Уважаемые',
+			names: 'Никита и Алёна',
+		},
+		maksim_:{ // TTt
+			title: 'Уважаемые',
+			names: 'Максим и Алина',
+		},
+		slava: {
+			title: 'Уважаемый',
+			names: 'Вячеслав Дмитриевич',
+		},
+		vyacheslav: {
+			title: 'Уважаемый',
+			names: 'Вячеслав Евгеньевич',
+		},
+		denis_liza: {
+			title: 'Уважаемые',
+			names: 'Денис и Елизавета',
+		},
+		arina_andrey: {
+			title: 'Уважаемые',
+			names: 'Арина и Андрей',
+		},
+		victoria: {
+			title: 'Уважаемая',
+			names: 'Виктория Ивановна',
+		},
+		slavak: {
+			title: 'Уважаемый',
+			names: 'Вячеслав Валерьевич',
+		},
+		darya: {
+			title: 'Уважаемая',
+			names: 'Дарья Владимировна',
+		},
+		natalia_diana: {
+			title: 'Уважаемые',
+			names: 'Наталья и Диана',
+		}
+		
 	};
 
 	if (guest && map[guest]) {
