@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
 	const namesEl = document.getElementById('names');
 
 	const map = {
-		ruslan: {
+		maksim_alina: {
 			title: 'Уважаемые',
 			names: 'Максим & Алина',
 		},
