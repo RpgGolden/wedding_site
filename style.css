@@ -143,6 +143,12 @@ body.open .right {
 	font-size: clamp(14px, 1.3vw, 1.7vw);
 }
 
+@media (max-width: 600px) {
+	.place {
+		font-size: clamp(16px, 4.2vw, 20px);
+	}
+}
+
 .original {
 	font-weight: 700;
 	color: var(--ink);
