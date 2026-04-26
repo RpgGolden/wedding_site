@@ -148,8 +148,17 @@ body.open .right {
 }
 
 @media (max-width: 600px) {
+	.names {
+		font-size: clamp(24px, 3.3vw, 26px);
+		line-height: 1.15;
+	}
+
+	.names:first-child {
+		font-size: clamp(24px, 3.6vw, 34px);
+	}
+
 	.place {
-		font-size: clamp(16px, 4.2vw, 20px);
+		font-size: clamp(14px, 3.8vw, 18px);
 	}
 }
 
