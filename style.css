@@ -26,15 +26,19 @@ body {
 .card {
 	position: relative;
 
-	/* Влезаем по высоте экрана */
-	max-height: calc(100svh - (var(--pad) * 2));
-	height: calc(100svh - (var(--pad) * 2));
+	/* Формат A6: 105 × 148 мм */
+	width: min(
+		calc(100vw - (var(--pad) * 2)),
+		calc((100svh - (var(--pad) * 2)) * 105 / 148)
+	);
+	height: calc(width * 148 / 105);
 
-	/* Ширина по пропорциям */
-	aspect-ratio: 1600 / 2400;
+	/* Надежный вариант через aspect-ratio */
+	aspect-ratio: 105 / 148;
 
-	/* Ограничение на больших экранах */
+	/* Не даем вылезать за экран */
 	max-width: calc(100vw - (var(--pad) * 2));
+	max-height: calc(100svh - (var(--pad) * 2));
 
 	margin: 0 auto;
 	background: url('img/invitetwo.png') center/cover no-repeat;
@@ -178,7 +182,7 @@ body.open .right {
 	z-index: 4; /* под шторкой (у шторки 5), но над фоном */
 	color: var(--ink);
 	text-align: left;
-	max-width: min(46%, 520px);
+	max-width: min(49%, 520px);
 	display: flex;
 	flex-direction: column;
 	gap: clamp(4px, 0.6vw, 8px);
