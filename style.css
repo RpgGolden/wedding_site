@@ -147,63 +147,82 @@ body.open .right {
 	font-size: clamp(14px, 1.3vw, 1.7vw);
 }
 
+/* Адаптив только для центрального текста */
 @media (max-width: 600px) {
-	.names {
-		font-size: clamp(18px, 5vw, 23px);
-		line-height: 1.12;
-	}
-
-	.names:first-child {
-		font-size: clamp(19px, 5.2vw, 25px);
-	}
-
-	.place {
-		font-size: clamp(12px, 3.4vw, 16px);
-		line-height: 1.2;
+	.overlay-text {
+		padding: 20px;
 	}
 
 	.stack {
+		width: 86%;
 		gap: 7px;
+		transform: translateY(-28%);
 	}
-}
 
-@media (max-width: 430px) {
 	.names {
-		font-size: clamp(17px, 4.8vw, 21px);
+		font-size: 18px;
 		line-height: 1.1;
 	}
 
 	.names:first-child {
-		font-size: clamp(18px, 5vw, 23px);
+		font-size: 20px;
 	}
 
 	.place {
-		font-size: clamp(12px, 3.2vw, 15px);
+		font-size: 12px;
+		line-height: 1.2;
+	}
+}
+
+@media (max-width: 430px) {
+	.stack {
+		width: 84%;
+		gap: 6px;
+		transform: translateY(-26%);
 	}
 
-	.event-date,
-	.event-place {
+	.names {
+		font-size: 17px;
+		line-height: 1.08;
+	}
+
+	.names:first-child {
+		font-size: 19px;
+	}
+
+	.place {
 		font-size: 11px;
+		line-height: 1.18;
+	}
+}
+
+@media (max-width: 360px) {
+	.overlay-text {
+		padding: 14px;
 	}
 
 	.stack {
-		gap: 6px;
+		width: 86%;
+		gap: 5px;
+		transform: translateY(-24%);
+	}
+
+	.names {
+		font-size: 16px;
+	}
+
+	.names:first-child {
+		font-size: 18px;
+	}
+
+	.place {
+		font-size: 10.5px;
 	}
 }
 
 .original {
 	font-weight: 700;
 	color: var(--ink);
-}
-
-/* Очень маленькие телефоны: чуть больше отступов и меньше подъём */
-@media (max-width: 360px) {
-	.overlay-text {
-		padding: 14px;
-	}
-	.stack {
-		transform: translateY(-2%);
-	}
 }
 
 /* Уважаем настройки “меньше анимаций” */
