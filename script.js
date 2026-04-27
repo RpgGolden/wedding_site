@@ -126,7 +126,7 @@ window.addEventListener('load', () => {
 			names: 'Лариса Николаевна',
 		},
 		andrey_natalia: {
-			title: 'Уважаемый',
+			title: 'Уважаемые',
 			names: 'Андрей Викторович и Наталья Владимировна',
 		},
 		titskie: {
