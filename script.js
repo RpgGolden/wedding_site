@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
 	const map = {
 		maksim_alina: {
 			title: 'Уважаемые',
-			names: 'Максим & Алина',
+			names: 'Максим и Алина',
 		},
 		nastya_artem: {
 			title: 'Уважаемые',
@@ -133,14 +133,22 @@ window.addEventListener('load', () => {
 			title: 'Уважаемые',
 			names: 'Максим Сергеевич и Татьяна Александровна',
 		},
-		tatiana_anastasia: {
+		aleksandr_anastasia: {
 			title: 'Уважаемые',
-			names: 'Татьяна и Анастасия',
+			names: 'Анастасия и Александр',
 		},
 		baba_tanya: {
 			title: 'Уважаемая',
-			names: 'Татьяна Ивановна',
+			names: 'Татьяна Ивановна', // ПЕЧАТЬ
 		},
+		romanya: {
+			title: 'Уважаемые',
+			names: 'Сергей Павлович и Наталья Викторовна'
+		},
+		tatyana: {
+			title: 'Уважаемые',
+			names: 'Татьяна Сергеевна и Сергей Николаевич'
+		}
 	};
 
 	if (guest && map[guest]) {
